@@ -1,12 +1,11 @@
 class Solution(object):
-    def isPalindrome(self, x):
-        if x < 0 or (x % 10 == 0 and x != 0):
-            return False
-            
-        reversed_half = 0
-        while x > reversed_half:
-            reversed_half = reversed_half * 10 + x % 10
+    def reverse(self, x):
+        sign = -1 if x < 0 else 1
+        x = abs(x)
+        res = 0
+        
+        while x > 0:
+            res = res * 10 + x % 10
             x //= 10
             
-        return x == reversed_half or x == reversed_half // 10
-
+        res *= sign
